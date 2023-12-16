@@ -4,10 +4,6 @@ const token = localStorage.getItem("token")
 const portfolio = document.getElementById("portfolio")
 const titlePortfolio = document.querySelector("#portfolio h2")
 
-console.log(titlePortfolio)
-
-console.log(portfolio)
-
 // Fonction pour savoir si l'utilsateur est déja connecté ou non
 function alreadyConnected() {
     if(token === "") {
@@ -44,7 +40,7 @@ function createAdminBar() {
     bar.classList.add("edit-content")
     bar.innerHTML = `<div class="edit">
                         <i class="fa-regular fa-pen-to-square"></i>
-                        <p class="edit-project">Mode édition</p>
+                        <a href="#modal1" class="js-modal edit-project">Mode édition</a>
                     </div>`
 
     document.body.prepend(bar) 
