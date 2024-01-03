@@ -40,7 +40,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    radius: 10px;
     background: rgba(0, 0, 0, 0.8);
 }
 
@@ -57,7 +56,43 @@
     flex-direction: column;
 }
 
-.model-wrapper-close {
+.modal-wrapper-close {
     display: flex;
     flex-direction: row-reverse;
+}
+
+.gallery-modal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .img-project {
+        width: 20%;
+        height: 20%;
+    }
+
+    .img-project img {
+        width: 100%;
+    }
+}
+
+/********
+*** MODAL AJOUT PHOTO 
+*****/
+
+.formProject,  .form-picture {
+    display: flex;
+    flex-direction: column;
+}
+
+#previewPicture {
+    display: none;
+}
+
+.file {
+    display: none;
+}
+
+.labelFile {
+    cursor: pointer;
 }

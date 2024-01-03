@@ -10,7 +10,7 @@ const openModal = function(e) {
     target.removeAttribute('aria-hidden', false)
     target.setAttribute('aria-modal', 'true')
     modal = target
-    modal.addEventListener('click', closeModal)
+    //modal.addEventListener('click', closeModal)
     modal.querySelector('.js-modal-close').addEventListener('click', closeModal)
 }
 
@@ -25,21 +25,18 @@ const closeModal = function(e) {
     modal = null
 }
 
+function createModal() {  
+  /*   let myModal = document.createElement('div')
 
-function createModal() {
-
-    let myModal = document.createElement('div')
-    myModal.innerHTML = 
+    myModal.innerHTML =
     `<aside id="modal1" class="modal" aria-hidden="true" role="dialog" style="display: none;">
         <div class="modal-wrapper">
             <div class="model-wrapper-close">
-                <i class="fa-solid fa-times js-modal-close"" aria-hidden="true"></i>
+                <i class="fa-solid fa-times js-modal-close" aria-hidden="true"></i>
             </div>
             <h2>Galerie photo</h2>
             <div class="model-wrapper-body">
-                <div class="gallery">
-                    <!--Générer en JS-->
-                </div>
+                
             </div>
             <div class="model-wrapper-footer">
                 <div class="footer-modal">
@@ -47,9 +44,7 @@ function createModal() {
                 </div>
             </div>
         </div>
-    </aside>`
-    sectionProjet.appendChild(myModal)
-
+    </aside>` */
     
     document.querySelectorAll('.edit-project').forEach(a => {
         a.addEventListener("click", openModal) 

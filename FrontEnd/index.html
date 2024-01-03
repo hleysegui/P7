@@ -10,9 +10,9 @@
 	<script src="https://kit.fontawesome.com/f83fced4d4.js" crossorigin="anonymous"></script>
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script src="assets/script/index.js" defer></script>
-	<script src="assets/script/works.js" defer></script>
-	<script src="assets/script/administration/modal.js" defer></script>
+	<script type="module" src="assets/script/administration/admin.js" defer></script>
+	<script type="module" src="assets/script/works.js" defer></script>
+	<script type="module" src="assets/script/administration/modal.js" defer></script>
 
 </head>
 <body>
@@ -42,11 +42,31 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2> 
+		<h2>Mes Projets</h2>
 		<div class="filter"></div>
 		<div class="gallery">
 			<!--Générer en JS-->
 		</div>
+		<aside id="modal1" class="modal" aria-hidden="false" role="dialog" style="display: none;">
+			<div class="overlay">
+			</div>
+			<div class="modal-wrapper">
+				<div class="modal-wrapper-close">
+					<i class="fa-solid fa-times js-modal-close" aria-hidden="true"></i>
+				</div>
+				<h2 class="modal-title">Galerie photo</h2>
+				<div class="modal-wrapper-body">
+					<div class="gallery-modal">
+				
+					</div>
+				</div>
+				<div class="model-wrapper-footer">
+					<div class="footer-modal">
+						<button class="btn-add">Ajouter une photo</button>
+					</div>
+				</div>
+			</div>
+		</aside>
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
