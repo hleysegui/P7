@@ -3,6 +3,8 @@
    License: none (public domain)
 */
 
+@import 'admin.css';
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -60,7 +62,8 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin-top: 100px;
+	/*margin: 50px 0*/
 }
 section {
 	margin: 50px 0
