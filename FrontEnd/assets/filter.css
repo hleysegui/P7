@@ -1,0 +1,32 @@
+.filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 3.5em;
+    margin-bottom: 4.5em;
+    column-gap: 10px;
+}
+
+.input-cat {
+    min-width: 100px;
+    height: 37px;
+    border-radius: 60px;
+    border: 1px solid #1D6154;
+    color: #1D6154;
+    cursor: pointer;
+    font-family: Syne;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: transparent;
+    padding: 0 1em;
+
+}
+
+.filter .active {
+    background-color: #1D6154;
+    color: #FFFFFF;
+}
+
