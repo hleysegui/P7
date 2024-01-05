@@ -18,26 +18,42 @@
 	</a>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li><a href="login.html">login</a></li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+			<li class="nav">projets</li>
+			<li class="nav">contact</li>
+			<li class="nav"><a href="login.html">login</a></li>
+			<li class="nav"><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
 </header>
 <main>
-    <section class="login">
+    <section class="login__user">
         <h2>Login</h2>
-        <form action="action_page.php" method="post">
-            <label for="email"><b>E-mail</b></label>
-            <input type="text" name="email" id="email" >
-              <label for="psw"><b>Password</b></label>
-              <input type="password" name="psw" id="psw">
-              <button type="submit">Se connecter</button>
-              <div class="container">
-				<span class="errorMessage"></span>
-                <a href="#">Mot de passe oublié</a></span>
-            </div>
-          </form>
+		<div class="container__form">
+			<form action="" method="POST" class="form-login">
+				<div class="email__box">
+					<label for="email"><b>E-mail</b></label>
+					<input type="text" name="email" id="email" >
+				</div>
+				<div class="password__box">
+					<label for="psw"><b>Password</b></label>
+					<input type="password" name="psw" id="psw">
+				</div>
+				<button class="btn-log" type="submit">Se connecter</button>
+				<div class="container">
+					<span class="errorMessage"></span>
+					<a href="#" class="reset-password">Mot de passe oublié</a></span>
+				</div>
+			</form>
+		</div>
     </section>
 </main>
+
+<footer>
+	<nav>
+		<ul>
+			<li>Mentions Légales</li>
+		</ul>
+	</nav>
+</footer>
+</body>
+</html>

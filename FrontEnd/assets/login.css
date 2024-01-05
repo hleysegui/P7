@@ -1,0 +1,80 @@
+header {
+    margin: 50px 0;
+}
+
+.login__user {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    width: 34%;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 1.5em;
+    }
+}
+
+.email__box, .password__box {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-log {
+    width: 237px;
+    height: 36px;
+    border-radius: 60px;
+    cursor: pointer;
+    background: #1D6154;
+    border-color: #1D6154;
+    border: none;
+    color: #FFFFFF;
+    font-family: Syne;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-bottom: 1.5em;    
+    margin-top: 1.5em;    
+}
+
+.reset-password {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #3D3D3D;
+    text-decoration: underline;
+
+}
+
+
+.form-login {
+    text-align: center;
+
+    input[type="text"], input[type="password"] {
+
+        Width: 400px;
+        Height: 31px;
+        background: #FFFFFF;
+        border-color: #FFFFFF;
+        box-shadow: 0px 4px 14px 0px #00000017;
+        border: none;
+        padding: 10px;
+        margin-bottom: 22px;
+        margin-top: 10px;
+    }
+}
+
+.form-login label {
+    font-family: Work Sans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
