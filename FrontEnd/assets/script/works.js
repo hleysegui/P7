@@ -1,10 +1,6 @@
 // Variable 
 const urlApi = "http://localhost:5678/api/works"
 const divGallery = document.querySelector(".gallery")
-const btnAdd = document.querySelector('.btn-add')
-const bodyModal = document.querySelector('.modal-wrapper-body')
-
-let modalGallery = document.querySelector('.gallery-modal')
 let data = {}
 
 import { alreadyConnected, token } from '../script/administration/admin.js'
@@ -23,11 +19,13 @@ async function getWorks() {
 
 let listWork = getWorks()
 listWork.then((data) => createGallery(data))
-//listWork.then((data) => filter(data))
+
+
 
 // creation dynamique de la galery 
-//param onGallery/userconnected bool
 function createGallery(data, isConnected) {
+
+    let modalGallery = document.querySelector('.gallery-modal')
     
     isConnected = alreadyConnected()
 
@@ -104,22 +102,14 @@ function refreshProject() {
 }
 
 function resetProject() {
+    let modalGallery = document.querySelector('.gallery-modal')
+
     divGallery.innerHTML = ""
     modalGallery.innerHTML = ""
 }
 
-async function addProject() {
-
-    let image = document.querySelector('.file').files[0]
-    let title = document.getElementById('titre').value
-    let category = 1
-
-    console.log(image)
-    console.log(title)
-    console.log(category)
-
+export async function addProject(image, title, category) {
     try {
-
         const project = new FormData()
         project.append("image", image)
         project.append("title", title)
@@ -134,7 +124,7 @@ async function addProject() {
             if (response.status === 204) {
                 console.log(response)
             } else if(response.status === 401) {
-                console.log("error")
+                alert("Vous devez vous identifiez pour ajouter un projet")
             }
         })
 
@@ -142,92 +132,3 @@ async function addProject() {
         alert(error)
     }
 }
-
-function buildViewNewProject() {
-    
-    modalGallery.style.display = "none"
-    btnAdd.style.display = "none"
-
-    let title = document.querySelector('.modal-title')
-    title.innerHTML = "Ajout Photo"
-
-    let newProject = document.createElement('div')
-    newProject.classList.add('new-project')
-    newProject.innerHTML = `
-    <form action="" method="POST" enctype="multipart/form-data" class="formProject">
-        <div class="form-picture">
-            <img id="previewPicture" alt="your image" width="100" height="100" />
-            <i class="fa fa-picture-o iconPicture" aria-hidden="true"></i>
-            <label for="file" class="labelFile">+ Ajouter photo</label>
-            <input type="file" class="file" id="file">
-            <span>jpg, png : 4mo max</span>
-        </div>
-        <label for="titre"><b>Titre</b></label>
-        <input type="text" name="titre" id="titre">
-
-        <label for="cat"><b>Catégorie</b></label>
-        <select name="cat" id="cat">
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
-        </select>
-
-        <button type="submit">Valider</button>
-    </form>`
-
-    bodyModal.appendChild(newProject)
-
-    const btnFile = document.querySelector('.file')
-    const filePreview = document.getElementById("previewPicture")
-    const iconFile = document.querySelector(".iconPicture")
-
-    btnFile.addEventListener("change", function() {
-        previewPhoto(btnFile, filePreview, iconFile)
-    })
-
-    const form = document.querySelector('form');
-
-    form.addEventListener("submit", async (event) => {
-        event.preventDefault()
-        addProject()
-    })
-}
-
-const previewPhoto = (input, img, icon) => {
-    const file = input.files[0];
-
-    if (verifExtensionFile(file.name) === true && file.size < 4194304 ) {
-        // verifier extension 
-        const fileReader = new FileReader();
-
-        fileReader.onload = event => {
-            img.style.display = "block"
-            img.setAttribute('src', event.target.result);
-            icon.style.display = "none"
-        }
-        fileReader.readAsDataURL(file);
-    } else {
-        alert("erreur du fichier")
-    }
-}
-
-function verifExtensionFile(file) {
-
-    let regFile = new RegExp (/.(jpg|jpeg|png)$/i)
-
-    if(!regFile.test(file)) {
-        return false
-    }
-    return true
-}
-
-btnAdd.addEventListener("click", function() {
-    buildViewNewProject()
-})
-
-
-
-
