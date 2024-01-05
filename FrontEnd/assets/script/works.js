@@ -33,7 +33,7 @@ function createGallery(data, isConnected) {
         let figure = document.createElement('figure')
         figure.dataset.class = data[i].category.name
         figure.dataset.id = data[i].category.id
-        figure.classList.add('project-' + data[i].id)
+        figure.classList.add('project')
         figure.classList.add("active")
         divGallery.appendChild(figure)
         
