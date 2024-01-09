@@ -1,6 +1,8 @@
 const url = "http://localhost:5678/api/categories"
 const divFitler = document.querySelector('.filter')
 
+import { listWork } from './works.js'
+
 export async function getCategories() {
     try {
         const response = await fetch(url)

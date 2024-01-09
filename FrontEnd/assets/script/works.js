@@ -17,10 +17,8 @@ async function getWorks() {
     }
 } 
 
-let listWork = getWorks()
+export let listWork = getWorks()
 listWork.then((data) => createGallery(data))
-
-
 
 // creation dynamique de la galery 
 function createGallery(data, isConnected) {
