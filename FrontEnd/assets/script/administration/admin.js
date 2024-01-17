@@ -1,4 +1,5 @@
 const login = document.querySelector('.login') 
+const filter = document.querySelector('.filter') 
 const isConnected = document.querySelector(".isConnected")
 export const token = localStorage.getItem("token")
 const portfolio = document.getElementById("portfolio")
@@ -19,6 +20,7 @@ function adminView() {
         addBtnEditProject()
 
         login.style.display = "none"
+        filter.style.display = "none"
     
         let logout = document.createElement('a')
         logout.classList.add("logout")
