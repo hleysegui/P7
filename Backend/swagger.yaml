@@ -39,6 +39,83 @@ paths:
           description: User not found
         '401':
           description: Not Authorized
+  /users/signup:        
+    post:
+      summary: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                  password:
+                    type: string
+        '500':
+          description: Unexpected Error
+        '401':
+          description: Unauthorized
+        '400':
+          description: Bad Request          
+  /users/{id}:
+    delete:
+     summary: Delete a user depending on id
+     parameters:
+       - name: id
+         in: path
+         required: true
+         description: id of user to be deleted
+         schema:
+           type: integer
+           format: int64
+           example: 1
+     responses:
+       '200':
+         description: Item Deleted
+       '401':
+         description: Unauthorized
+       '500':
+         description: Unexpected Behaviour
+  /users:
+    get:
+      summary: Returns all users
+      responses:
+        '200':
+          description: Returns an array of all users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 1
+                    email:
+                      type: string
+                      example: "sophie.bluel@test.tld"
+                    password:
+                      type: string
+                      example: "$2b$10$OyUbvsLMHp/gu0kPRpkJ/.757z.DBecw/wd1CE09Y3q4nDjoC7L1e"
+                    
+        '500':
+          description: Unexpected Error
   /categories:
     get:
       summary: Returns all categories
@@ -171,6 +248,60 @@ paths:
          description: Unauthorized
        '500':
          description: Unexpected Behaviour
+  /works/user/{userId}:
+    get:
+      summary: Returns all works by user id
+      security:
+       - BearerAuth: []
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: id of user to get works
+          schema:
+            type: integer
+            format: int64
+            example: 1
+      responses:
+        '200':
+          description: Returns an array of all works
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 1
+                    title:
+                      type: string
+                      example: "Abajour Tahina"
+                    imageUrl:
+                      type: string
+                      example: "http://localhost:5678/images/abajour-tahina1651286843956.png"
+                    categoryId:
+                      type: integer
+                      format: int64
+                      example: 1
+                    userId:
+                      type: integer
+                      format: int64
+                      example: 1
+                    category:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                          example: 1
+                        name:
+                          type: string
+                          example: "Objets"
+        '500':
+          description: Unexpected Error
 
 components:
   securitySchemes:

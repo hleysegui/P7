@@ -3,6 +3,11 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Users = db.users;
 
+exports.findAll = async (req, res) => {
+	const users = await Users.findAll()
+	return res.status(200).json(users)
+}
+
 exports.signup = async (req, res) => {
 	if(!req.body.email || !req.body.password){
 		return res.status(400).send({
@@ -22,7 +27,15 @@ exports.signup = async (req, res) => {
 			message: err.message
 		});
 	}
+}
 
+exports.delete = async (req, res) => {
+	try{
+		await Users.destroy({where:{id: req.params.id}})
+		return res.status(204).json({message: 'User Deleted Successfully'})
+	}catch(e){
+		return res.status(500).json({error: new Error('Something went wrong')})
+	}
 }
 
 exports.login = async (req, res) => {

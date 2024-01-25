@@ -6,6 +6,11 @@ exports.findAll = async (req, res) =>  {
 	return res.status(200).json(works);
 }
 
+exports.findAllByUser = async (req, res) => {
+	const worksByUser = await Works.findAll({where:{userId: req.params.userId}})
+	return res.status(200).json(worksByUser)
+}
+
 exports.create = async (req, res) => {
 	const host = req.get('host');
 	const title = req.body.title;
