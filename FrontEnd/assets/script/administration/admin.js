@@ -5,7 +5,10 @@ export const token = localStorage.getItem("token")
 const portfolio = document.getElementById("portfolio")
 const titlePortfolio = document.querySelector("#portfolio h2")
 
-// Fonction pour savoir si l'utilsateur est déja connecté ou non
+/**
+ * if token is empty or null means user is not connected and return false
+ * @returns {Boolean}
+ */
 export function alreadyConnected() {
     if(token === "" || token === null) {
         return false
@@ -13,7 +16,9 @@ export function alreadyConnected() {
     return true
 }
 
-//Ajoute tous les éléments quand utilisateur est connecté en admin 
+/**
+ * Call function for check is the user is connected for display admin bar
+ */
 function adminView() {
     if(alreadyConnected() === true) {
         createAdminBar()
@@ -37,7 +42,9 @@ function adminView() {
     }
 }
 
-// Création de la bar d'édition en mode admin
+/**
+ * Create the admin block for edition
+ */
 function createAdminBar() {
     let bar = document.createElement('aside')
     bar.classList.add("edit-content")
@@ -49,7 +56,9 @@ function createAdminBar() {
     document.body.prepend(bar) 
 }
 
-//Ajotuer btn pour modifier les projets
+/**
+ * Add the button edit when user is connected 
+ */
 function addBtnEditProject() {
     let divProject = document.createElement('div')
     divProject.classList.add("projets")

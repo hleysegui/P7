@@ -4,7 +4,9 @@ const newProject = document.createElement('div')
 import { getCategories } from "../filter.js"
 import { addProject } from "../works.js"
 
-// Création de la modal au clic que edition 
+/**
+ * Create the modal for edit work when user is connected
+ */
 function createModal() {
 
     let modal = document.createElement('div')
@@ -32,7 +34,6 @@ function createModal() {
     
     modalTriggers.forEach(trigger => trigger.addEventListener("click", toggleModal))
 
-    // Ajouter class active ou non au clic 
     function toggleModal() {
         modalContainer.classList.toggle("active")
     }
@@ -48,6 +49,9 @@ btnAdd.addEventListener("click", function() {
     buildViewNewProject()
 })
 
+/**
+ * Create modal for add a new project
+ */
 function buildViewNewProject() {
 
     const modalGallery = document.querySelector('.gallery-modal')
@@ -96,7 +100,7 @@ function buildViewNewProject() {
     bodyModal.appendChild(newProject)
 
     /**
-     * création dynamique des options 
+     * Create dynamic options
      */
     let listCat = getCategories()
     let select = document.getElementById("cat")
@@ -112,9 +116,8 @@ function buildViewNewProject() {
     })
 
     /**
-     * Déclaration variables et appel fonction preview 
+     * Declare var and call function previewPhoto
      */
-
     const btnFile = document.querySelector('.file')
     const filePreview = document.getElementById("previewPicture")
     const iconFile = document.querySelector(".iconPicture")
@@ -123,13 +126,12 @@ function buildViewNewProject() {
         previewPhoto(btnFile, filePreview, iconFile)
     })
 
-    // Par défaut on désactive le bouton envoyer
+    // By default we disabled the button
     const btnValider = document.querySelector(".btn-valider")
     btnValider.setAttribute('disabled', true)
     btnValider.style.backgroundColor = "#A7A7A7"
     
-
-    // Récupération des champs du formulaire pour activer/désactiver bouton submit au change
+    // Get fields form for active/inactive button submit on change
     let formProject = document.querySelector("form")
     let fields = formProject.elements
     let counter = 0
@@ -152,7 +154,11 @@ function buildViewNewProject() {
 }
 
 /**
- * A la sélection de la photo affiche l'image sans rafraichir
+ * After user choose picture can show without refresh the page
+ * we check the file size and the extension 
+ * @param {*} input 
+ * @param {*} img 
+ * @param {*} icon 
  */
 const previewPhoto = (input, img, icon) => {
     const file = input.files[0];
@@ -177,7 +183,9 @@ const previewPhoto = (input, img, icon) => {
 }
 
 /**
- * Vérification du format de l'image choisis 
+ * Check the file extension
+ * @param {String} file 
+ * @returns {Boolean}
  */
 function verifExtensionFile(file) {
 
@@ -189,7 +197,9 @@ function verifExtensionFile(file) {
     return true
 }
 
-// Retoune sur la modal galerie photo
+/**
+ * Create button for back to the last modal
+ */
 function backModal() {
     const modalGallery = document.querySelector('.gallery-modal')
     const bodyModal = document.querySelector('.modal-wrapper-body')
@@ -207,7 +217,7 @@ function backModal() {
 }
 
 /**
-* Soumission du formulaire appel fonction addProject de works.js avec parametres
+* Submit form and call function addProct()
 **/
 function submitForm() {
      

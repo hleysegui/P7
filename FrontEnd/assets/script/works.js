@@ -5,7 +5,10 @@ let data = {}
 
 import { alreadyConnected, token } from '../script/administration/admin.js'
 
-// Récupération des travaux via l'api "http://localhost:5678/api/works"
+/**
+ * Call API for get all Projects
+ * @returns {Array|String}
+ */
 async function getWorks() {
     try {
         const response = await fetch(urlApi)
@@ -20,7 +23,12 @@ async function getWorks() {
 export let listWork = getWorks()
 listWork.then((data) => createGallery(data))
 
-// creation dynamique de la galery 
+/**
+ * Create the Gallery and fill with all works
+ * @param {Array} data 
+ * @param {Boolean} isConnected 
+ * @returns {void}
+ */
 function createGallery(data, isConnected) {
 
     let modalGallery = document.querySelector('.gallery-modal')
@@ -67,7 +75,11 @@ function createGallery(data, isConnected) {
    }
 }
 
-//Function suppression projet par id du projet
+/**
+ * Call API for Delete project by id
+ * @param {Int} idProject 
+ * @returns {void| String}
+ */
 async function deleteProject(idProject) {
 
     try {
@@ -83,13 +95,14 @@ async function deleteProject(idProject) {
                 window.location.href = "login.html";
             }
         })
-
     } catch(error) {
         alert(error)
     }
 }
 
-// Rafraichit les projets sans recharger la page
+/**
+ * Refresh project
+ */
 function refreshProject() {
     resetProject()
 
@@ -99,6 +112,9 @@ function refreshProject() {
     })
 }
 
+/**
+ * ResetProject
+ */
 function resetProject() {
     let modalGallery = document.querySelector('.gallery-modal')
 
@@ -106,6 +122,12 @@ function resetProject() {
     modalGallery.innerHTML = ""
 }
 
+/**
+ * Call API for add new work 
+ * @param {String} image 
+ * @param {String} title 
+ * @param {Int} category 
+ */
 export async function addProject(image, title, category) {
     try {
         const project = new FormData()
