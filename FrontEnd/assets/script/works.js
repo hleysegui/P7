@@ -7,7 +7,7 @@ import { alreadyConnected, token } from '../script/administration/admin.js'
 
 /**
  * Call API for get all Projects
- * @returns {Array|String}
+ * @returns {Array|Void}
  */
 async function getWorks() {
     try {
@@ -77,8 +77,8 @@ function createGallery(data, isConnected) {
 
 /**
  * Call API for Delete project by id
- * @param {Int} idProject 
- * @returns {void| String}
+ * @param {Number} idProject 
+ * @returns {Void}
  */
 async function deleteProject(idProject) {
 
@@ -102,6 +102,7 @@ async function deleteProject(idProject) {
 
 /**
  * Refresh project
+ * @returns {Void}
  */
 function refreshProject() {
     resetProject()
@@ -114,6 +115,7 @@ function refreshProject() {
 
 /**
  * ResetProject
+ * @returns {Void}
  */
 function resetProject() {
     let modalGallery = document.querySelector('.gallery-modal')
@@ -126,7 +128,8 @@ function resetProject() {
  * Call API for add new work 
  * @param {String} image 
  * @param {String} title 
- * @param {Int} category 
+ * @param {Number} category 
+ * @returns {Void}
  */
 export async function addProject(image, title, category) {
     try {
@@ -141,13 +144,12 @@ export async function addProject(image, title, category) {
             body: project,
         })
         .then(response => {
-            if (response.status === 204) {
-                console.log(response)
+            if (response.status === 500) {
+                alert("Something went wrong")
             } else if(response.status === 401) {
                 alert("Vous devez vous identifiez pour ajouter un projet")
             }
         })
-
     } catch(error) {
         alert(error)
     }

@@ -8,6 +8,7 @@ const titlePortfolio = document.querySelector("#portfolio h2")
 /**
  * if token is empty or null means user is not connected and return false
  * @returns {Boolean}
+ * @returns {Void}
  */
 export function alreadyConnected() {
     if(token === "" || token === null) {
@@ -18,6 +19,7 @@ export function alreadyConnected() {
 
 /**
  * Call function for check is the user is connected for display admin bar
+ * @returns {Void}
  */
 function adminView() {
     if(alreadyConnected() === true) {
@@ -44,6 +46,7 @@ function adminView() {
 
 /**
  * Create the admin block for edition
+ * @returns {Void}
  */
 function createAdminBar() {
     let bar = document.createElement('aside')
@@ -58,6 +61,7 @@ function createAdminBar() {
 
 /**
  * Add the button edit when user is connected 
+ * @returns {Void}
  */
 function addBtnEditProject() {
     let divProject = document.createElement('div')

@@ -6,6 +6,7 @@ import { addProject } from "../works.js"
 
 /**
  * Create the modal for edit work when user is connected
+ * @returns {Void}
  */
 function createModal() {
 
@@ -51,6 +52,7 @@ btnAdd.addEventListener("click", function() {
 
 /**
  * Create modal for add a new project
+ * @returns {Void}
  */
 function buildViewNewProject() {
 
@@ -156,9 +158,10 @@ function buildViewNewProject() {
 /**
  * After user choose picture can show without refresh the page
  * we check the file size and the extension 
- * @param {*} input 
- * @param {*} img 
- * @param {*} icon 
+ * @param {HTMLElement} input 
+ * @param {HTMLElement} img 
+ * @param {HTMLElement} icon 
+ * @returns {Void}
  */
 const previewPhoto = (input, img, icon) => {
     const file = input.files[0];
@@ -199,6 +202,7 @@ function verifExtensionFile(file) {
 
 /**
  * Create button for back to the last modal
+ * @returns {Void}
  */
 function backModal() {
     const modalGallery = document.querySelector('.gallery-modal')
@@ -218,7 +222,8 @@ function backModal() {
 
 /**
 * Submit form and call function addProct()
-**/
+* @returns {Void}
+*/
 function submitForm() {
      
     const form = document.querySelector('form');

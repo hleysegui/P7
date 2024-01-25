@@ -5,7 +5,7 @@ import { listWork } from './works.js'
 
 /**
  * Call API for get all Catégories
- * @returns {Array| String }
+ * @returns {Array| Void }
  */
 export async function getCategories() {
     try {
@@ -25,6 +25,7 @@ listCategory.then((categories) => showCategories(categories))
  * Browse categories for create filter by categorie 
  * Call function for active or not filter and get works by categorie
  * @param {Array} categories 
+ * @returns {Void}
  */
 function showCategories(categories) {
 
@@ -73,7 +74,7 @@ function filterByCategory(listCategory, event) {
 
 /**
  * Browse GalleryItem and check if work categorie match with filter choose by user and display work 
- * @param {Integer} t 
+ * @param {Number} t 
  * @param {Array} galleryItem 
  * @returns {Void}
  */

@@ -11,7 +11,7 @@ const user = {}
 /**
  * Call API for log user try connect if response ok save token and redirect to index page
  * @param { Array } user 
- * @returns { Object | String }
+ * @returns { Object | Void }
  */
 async function login(user) {
     try {
@@ -39,6 +39,7 @@ async function login(user) {
 /**
  * Add event listening on submit form after check email and password call login function 
  * Throw error if something wrong
+ * @returns {Void}
  */
 form.addEventListener("submit", async (event) => {
     try {
@@ -90,8 +91,8 @@ function validEmail(userEmail) {
 
 /**
  * Check input field if input empty throw an Error
- * @param {*} field 
- * @returns {String}
+ * @param {HTMLElement} field 
+ * @returns {Void}
  */
 function validField(field) {
     if(field.value === "") {
@@ -102,6 +103,7 @@ function validField(field) {
 /**
  * Manage error message for show to user
  * @param {String} message 
+ * @returns {Void}
  */
 function showErrorMessage(message) {
     let spanErreurMessage = document.querySelector('.errorMessage')
