@@ -148,7 +148,9 @@ export async function addProject(image, title, category) {
                 alert("Something went wrong")
             } else if(response.status === 401) {
                 alert("Vous devez vous identifiez pour ajouter un projet")
-            }
+            } else if(response.status === 201)(
+                refreshProject()
+            )
         })
     } catch(error) {
         alert(error)
